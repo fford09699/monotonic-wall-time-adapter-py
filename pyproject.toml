@@ -1,6 +1,6 @@
 [project]
 name = "monotonic-wall-time-adapter-py"
-version = "0.1.1"
+version = "0.1.2"
 description = "Unified monotonic clock function returning seconds from a stable process-local epoch."
 requires-python = ">=3.10"
 dependencies = []
