@@ -31,3 +31,10 @@ The trade-off: the epoch is process-local and established lazily, so the first r
 - `clock()` — returns a monotonic `float` in seconds relative to the stable epoch.
 - `get_epoch_offset()` — returns the cached raw epoch offset (`float`), or `None` if `clock()` has not been called yet.
 - `reset()` — clears the cached epoch; intended for tests only.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
